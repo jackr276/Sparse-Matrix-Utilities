@@ -14,9 +14,9 @@ typedef unsigned char BYTE;
  * The main(and only) function that this program has. Opens a file for reading bytes, reads int
  * by int, and prints out various values for each unsigned int that it reads
  */
-int main(int argc, char **argv){
+int main(int argc, char** argv){
 	//If no file is passed, exit with an error
-	if(argc < 1){
+	if(argc < 2){
 		printf("No filename given");
 		return 1;
 	}
