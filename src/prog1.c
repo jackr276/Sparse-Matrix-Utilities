@@ -39,6 +39,8 @@ int main(int argc, char** argv){
 
 	//Count the number of nonzero elements
 	int numNonZero = 0;
+	//Keep an unsigned int for comparison
+	unsigned int uZero = 0;
 
 	unsigned int* valPtr = values;
 	unsigned int* colPtr = column_indices;
@@ -53,7 +55,8 @@ int main(int argc, char** argv){
 			fread(&i, 1, sizeof(i), fl);
 			
 			//If we encounter a nonzero element
-			if(i != 0){
+			if(i != uZero){
+				printf("%u\n", i);
 				numNonZero++;
 
 				//save the value
@@ -72,18 +75,31 @@ int main(int argc, char** argv){
 	//close the file once we are done
 	fclose(fl);
 
-	/*Only for testing*/
-	for(int i = 0; i < *valPtr; i++){
-		printf("%u, ", values[i]);
+	//Sparse matrix is now deciphered, write to a new file
+	FILE* f = fopen("matrix.txt", "w+");
+	
+	//Print the matrix dimensions
+	fprintf(f, "dimensions %u %u\n", r, c);
+
+	//Print all values to file
+	fprintf(f, "%s", "values");
+
+	for(int i = 0; i < numNonZero; i++){
+		fprintf(f, " %u", values[i]);
+	}
+	
+	//Print all column indices to file
+	fprintf(f, "\ncolumn_indices");
+	for(int i = 0; i < numNonZero; i++){
+		fprintf(f, " %u", column_indices[i]);
 	}
 
-	printf("\n");
-	for(int i = 0; i < *colPtr; i++){
-		printf("%u, ", column_indices[i]);
-	}
-	printf("\n");
+	fprintf(f, "\nrow_start");
 
 	for(int i = 0; i < r + 1; i++){
-		printf("%u, ", row_start[i]);
+		fprintf(f, " %u", row_start[i]);
 	}
+	
+	fprintf(f, "\n");
+	fclose(f);
 }
