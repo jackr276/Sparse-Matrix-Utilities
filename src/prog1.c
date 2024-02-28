@@ -56,7 +56,6 @@ int main(int argc, char** argv){
 			
 			//If we encounter a nonzero element
 			if(i != uZero){
-				printf("%u\n", i);
 				numNonZero++;
 
 				//save the value
@@ -78,6 +77,12 @@ int main(int argc, char** argv){
 	//Sparse matrix is now deciphered, write to a new file
 	FILE* f = fopen("matrix.txt", "w+");
 	
+	//Let the user know if there was an error creating file
+	if(f == NULL){
+		printf("Output file could not be created");
+		return 1;
+	}
+
 	//Print the matrix dimensions
 	fprintf(f, "dimensions %u %u\n", r, c);
 
