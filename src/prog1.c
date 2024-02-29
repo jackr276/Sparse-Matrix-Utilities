@@ -5,8 +5,11 @@
 
 #include <stdio.h>
 
-
-
+/*
+ * The main(and only) function in this program opens a file, and reads
+ * the unsigned integers in the file into Compressed Sparse Row(CSR) format
+ * for a sparse matrix, writing this form to a text file
+ */
 int main(int argc, char** argv){
 	//If no file is given, print error and return
 	if(argc < 2){
@@ -41,6 +44,7 @@ int main(int argc, char** argv){
 	//Keep an unsigned int for comparison
 	unsigned int uZero = 0;
 
+	//We will use these pointers to go through the arrays
 	unsigned int* valPtr = values;
 	unsigned int* colPtr = column_indices;
 
@@ -98,12 +102,13 @@ int main(int argc, char** argv){
 		fprintf(f, " %u", column_indices[i]);
 	}
 
+	//Print all row indices to file
 	fprintf(f, "\nrow_start");
-
+	
 	for(int i = 0; i < r + 1; i++){
 		fprintf(f, " %u", row_start[i]);
 	}
-	
 	fprintf(f, "\n");
+	//Close the file once printing is done
 	fclose(f);
 }

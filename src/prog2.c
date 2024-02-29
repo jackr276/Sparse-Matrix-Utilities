@@ -6,7 +6,7 @@
 #include <ctype.h>
 #include <stdio.h>
 
-//Define an unsigned char type byte
+//Define an unsigned char type byte for readability
 typedef unsigned char BYTE;
 
 
@@ -56,14 +56,15 @@ int main(int argc, char** argv){
 			BYTE byte = bytes[i];
 			printf("Byte %d: Hex: 0x%02x Char: ", i, byte);
 			
+			//print the byte if its char representation is printable	
 			if(isprint(byte)){
 				printf("%c\n", byte);
 			} else {
+				//otherwise print the unsigned integer value
 				printf("\\%u\n", byte);
 			}
 		}
 	}
-
 
 	//Close once we are all done
 	fclose(fl);
