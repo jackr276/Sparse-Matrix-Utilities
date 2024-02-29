@@ -4,6 +4,7 @@
  */
 
 #include <stdio.h>
+#include <string.h>
 
 /*
  * The main(and only) function in this program opens a file, and reads
@@ -12,7 +13,7 @@
  */
 int main(int argc, char** argv){
 	//If no file is given, print error and return
-	if(argc < 2){
+	if(argc < 2 || strlen(argv[1]) == 0){
 		printf("No input file given.");
 		return 1;
 	}

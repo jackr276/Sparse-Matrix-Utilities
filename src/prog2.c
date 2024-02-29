@@ -5,6 +5,7 @@
 
 #include <ctype.h>
 #include <stdio.h>
+#include <string.h>
 
 //Define an unsigned char type byte for readability
 typedef unsigned char BYTE;
@@ -16,7 +17,7 @@ typedef unsigned char BYTE;
  */
 int main(int argc, char** argv){
 	//If no file is passed, exit with an error
-	if(argc < 2){
+	if(argc < 2 || strlen(argv[1]) == 0){
 		printf("No filename given");
 		return 1;
 	}
