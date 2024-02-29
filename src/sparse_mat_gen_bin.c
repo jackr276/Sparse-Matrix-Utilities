@@ -5,8 +5,8 @@
 /* Change the follow three macros to control the dimensions and
  * sparsity level of the matrix.
  */
-#define ROWS  7
-#define COLS  7
+#define ROWS  10
+#define COLS  10
 #define RATIO  0.2
 
 int main() {
