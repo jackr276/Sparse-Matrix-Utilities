@@ -48,10 +48,13 @@ int main(int argc, char** argv){
 	//We will use these pointers to go through the arrays
 	unsigned int* valPtr = values;
 	unsigned int* colPtr = column_indices;
+	//TODO FIXME
+	unsigned int* rowPtr = row_start;
 
 	//Go through the matrix symbolically
 	for(int row = 0; row < r; row++){
-		//Record the rowstart index
+		//Record t
+		int nextStart = 0;
 		row_start[row] = row;
 
 		for(int col = 0; col < c; col++){
