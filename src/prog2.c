@@ -18,7 +18,7 @@ typedef unsigned char BYTE;
 int main(int argc, char** argv){
 	//If no file is passed, exit with an error
 	if(argc < 2 || strlen(argv[1]) == 0){
-		printf("No filename given");
+		printf("No filename given\n");
 		return 1;
 	}
 

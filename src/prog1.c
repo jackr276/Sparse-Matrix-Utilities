@@ -14,7 +14,7 @@
 int main(int argc, char** argv){
 	//If no file is given, print error and return
 	if(argc < 2 || strlen(argv[1]) == 0){
-		printf("No input file given.");
+		printf("No input file given\n");
 		return 1;
 	}
 	

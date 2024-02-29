@@ -21,7 +21,7 @@ int main(int argc, char** argv){
 	
 	//If no pathname is given, return an error
 	if(argc < 2 || strlen(argv[1]) == 0){
-		printf("No pathname provided");
+		printf("No pathname provided\n");
 		return 1;
 	}
 	
@@ -32,7 +32,7 @@ int main(int argc, char** argv){
 	traverseCountLines(&totalLines, argv[1]);
 
 	//Print out the total number of lines under the directory
-	printf("Lines in all .txt files under %s: %d", argv[1], totalLines);
+	printf("There are a total of %d lines in all .txt files under %s\n", totalLines, argv[1]);
 
 	return 0;
 }
@@ -69,9 +69,10 @@ void traverseCountLines(int* numLines, char* pathName){
 	if(S_ISREG(mode)){
 		char* fExtension;
 		//Search for file extension	
+		printf("Checking: %s\n", pathName);
 		fExtension = strchr(pathName, '.');
 		//compare the extension to txt
-		if(strcmp(fExtension, ".txt") == 0){
+		if(fExtension != NULL && strcmp(fExtension, ".txt") == 0){
 			//Call countlines if strcmp works
 			countLines(numLines, pathName);
 		}
