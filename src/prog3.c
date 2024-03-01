@@ -15,6 +15,9 @@
 #define MAXLENGTH 1000
 
 
+/*
+ * The main function simply checks the arguments and makes a call to traverseCountLines
+ */
 int main(int argc, char** argv){
 	//Predeclare traverseCountLines function
 	void traverseCountLines(int* numLines, char* pathName);
@@ -38,6 +41,10 @@ int main(int argc, char** argv){
 }
 
 
+/*
+ * This recursive function goes through a directory, and calls itself on other directory objects that it finds.
+ * If a regular file is found, countLines is called if said file ends in "*.txt"
+ */
 void traverseCountLines(int* numLines, char* pathName){
 	//Predeclare countlines function
 	void countLines(int* numLines, char* fname);
@@ -102,6 +109,10 @@ void traverseCountLines(int* numLines, char* pathName){
 }
 
 
+/*
+ * The countLines function opens a file, counts the lines in it, and closes the file, and updates the 
+ * reference to numLines
+ */
 void countLines(int* numLines, char* pathName){
 	//Assume each line in the file is at most 1000 chars
 	char line[MAXLENGTH];
@@ -109,8 +120,10 @@ void countLines(int* numLines, char* pathName){
 	//Open the file for reading
 	FILE* fl = fopen(pathName, "r");
 	
+	//We really only need this to check for NULL
 	char* lineP;
 
+	//As long as we can get another line, increment numLines
 	while((lineP = fgets(line, 1000, fl)) != NULL){
 		//Increment numlines by 1
 		(*numLines)++;
@@ -118,7 +131,5 @@ void countLines(int* numLines, char* pathName){
 
 	//Close the file once we're done
 	fclose(fl);
-
-
 }
 
