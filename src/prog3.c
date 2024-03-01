@@ -76,7 +76,6 @@ void traverseCountLines(int* numLines, char* pathName){
 	if(S_ISREG(mode)){
 		char* fExtension;
 		//Search for file extension	
-		printf("Checking: %s\n", pathName);
 		fExtension = strchr(pathName, '.');
 		//compare the extension to txt
 		if(fExtension != NULL && strcmp(fExtension, ".txt") == 0){
