@@ -55,7 +55,7 @@ int main(int argc, char** argv){
 		//For each byte, print out the hex value and either the int or char value
 		for(int i = 0; i < 4; i++){
 			BYTE byte = bytes[i];
-			printf("Byte %d: Hex: 0x%02x Char: ", i, byte);
+			printf("Byte %d: Hex: 0x%02x Char: ", i+1, byte);
 			
 			//print the byte if its char representation is printable	
 			if(isprint(byte)){
