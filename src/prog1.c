@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 
-/*
+/**
  * The main(and only) function in this program opens a file, and reads
  * the unsigned integers in the file into Compressed Sparse Row(CSR) format
  * for a sparse matrix, writing this form to a text file

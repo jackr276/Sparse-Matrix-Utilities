@@ -15,7 +15,7 @@
 #define MAXLENGTH 1000
 
 
-/*
+/**
  * The main function simply checks the arguments and makes a call to traverseCountLines
  */
 int main(int argc, char** argv){
@@ -41,7 +41,7 @@ int main(int argc, char** argv){
 }
 
 
-/*
+/**
  * This recursive function goes through a directory, and calls itself on other directory objects that it finds.
  * If a regular file is found, countLines is called if said file ends in "*.txt"
  */
@@ -109,7 +109,7 @@ void traverseCountLines(int* numLines, char* pathName){
 }
 
 
-/*
+/**
  * The countLines function opens a file, counts the lines in it, and closes the file, and updates the 
  * reference to numLines
  */
