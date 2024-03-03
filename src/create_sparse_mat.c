@@ -10,6 +10,11 @@
 #include <string.h>
 #include <time.h>
 
+
+/**
+ * This simple function can be used to write a sparse matrix, with user
+ * provided dimensions, into a binary file
+ */
 int main(int argc, char** argv){
 	//rows and columns are to be provided by the user
 	unsigned int rowNum, colNum;
