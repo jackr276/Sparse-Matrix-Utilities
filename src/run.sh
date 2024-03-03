@@ -14,7 +14,7 @@ read -p "If program requires input, enter it here: " fl
 
 name=$(basename -s .c "$1")
 
-gcc "$1" -o $name
+gcc -Wall -Wextra "$1" -o $name
 
 ./${name} $fl
 

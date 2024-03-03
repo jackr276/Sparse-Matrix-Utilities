@@ -50,11 +50,11 @@ int main(int argc, char** argv){
 	unsigned int* colPtr = column_indices;
 
 	//Go through the matrix symbolically
-	for(int row = 0; row < r; row++){
+	for(unsigned int row = 0; row < r; row++){
 		//Each rowStart is the number of nonzero elements that came before it
 		row_start[row] = numNonZero;
 
-		for(int col = 0; col < c; col++){
+		for(unsigned int col = 0; col < c; col++){
 			//read an unsigned int into i
 			fread(&i, 1, sizeof(i), fl);
 			
@@ -106,7 +106,7 @@ int main(int argc, char** argv){
 	//Print all row indices to file
 	fprintf(f, "\nrow_start");
 	
-	for(int i = 0; i < r + 1; i++){
+	for(unsigned int i = 0; i < r + 1; i++){
 		fprintf(f, " %u", row_start[i]);
 	}
 	fprintf(f, "\n");
