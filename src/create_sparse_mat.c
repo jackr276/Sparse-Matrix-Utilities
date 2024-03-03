@@ -6,8 +6,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-//Include time for randomness
 #include <string.h>
+//Include time for randomness
 #include <time.h>
 
 
