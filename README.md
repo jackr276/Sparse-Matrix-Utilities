@@ -1,7 +1,7 @@
 # Converting a Sparse Matrix into Compressed Sparse Row(CSR) Format
 Author: [Jack Robbins](https://www.github.com/jackr276)
  
-This project provides 3 C programs that are designed to generate and/or work on binary files containing sequences of unsigned integers. The binary files are treated as sparse matrices, that is, matrices who contain at least 50% zeroes, making them truly sparse. 
+This project provides 3 C programs that are designed to generate, print and convert binary files containing sequences of unsigned integers. The binary files are treated as sparse matrices, that is, matrices who contain at least 50% zeroes, making them truly sparse. 
 
 
 ## What is a Sparse Matrix?
