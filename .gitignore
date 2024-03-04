@@ -2,4 +2,6 @@ src/prog1
 src/prog2
 src/prog3
 src/sparse_mat_gen_bin
-/sampleDir
+src/sparse_mat_gen_bin.c
+src/convert_to_csr
+src/display_contents
