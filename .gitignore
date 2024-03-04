@@ -8,3 +8,4 @@ src/display_contents
 src/genMat
 src/matrix.bin
 src/matrix.txt
+src/create_sparse_mat
