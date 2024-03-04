@@ -1,7 +1,9 @@
 /**
- * @Author: Jack Robbins
- * Homework 3, problem 1
+ * @author: Jack Robbins
+ * This c program takes in a binary sparse matrix file and converts that file into
+ * compressed-sparse-row format, saving the output in a text-file 'matrix.txt'
  */
+
 
 #include <stdio.h>
 #include <string.h>

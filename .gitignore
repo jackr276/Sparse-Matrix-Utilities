@@ -5,3 +5,6 @@ src/sparse_mat_gen_bin
 src/sparse_mat_gen_bin.c
 src/convert_to_csr
 src/display_contents
+src/genMat
+src/matrix.bin
+src/matrix.txt

@@ -1,4 +1,0 @@
-dimensions 3 3
-values 1935156912 491247663 1328310367
-column_indices 1 2 2
-row_start 0 2 3 3

@@ -1,6 +1,8 @@
 /**
  * @Author Jack Robbins
- * Homework 03, problem 2
+ * This c program takes in a binary file of 4-byte unsigned integers, reads through the entire
+ * file, and displays the integer value and hex-value of each integer, as well as the hex
+ * value and char/int value of each byte in each integer
  */
 
 #include <ctype.h>
