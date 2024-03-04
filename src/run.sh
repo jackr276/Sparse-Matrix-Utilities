@@ -1,5 +1,4 @@
-# @Author: Jack Robbins
-
+# Author: Jack Robbins
 #!/bin/bash
 
 # Simple runner script for c programs

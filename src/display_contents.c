@@ -1,5 +1,5 @@
 /**
- * @Author Jack Robbins
+ * Author Jack Robbins
  * This c program takes in a binary file of 4-byte unsigned integers, reads through the entire
  * file, and displays the integer value and hex-value of each integer, as well as the hex
  * value and char/int value of each byte in each integer
