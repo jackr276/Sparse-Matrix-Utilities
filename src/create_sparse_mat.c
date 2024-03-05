@@ -10,6 +10,8 @@
 //Include time for randomness
 #include <time.h>
 
+//Define a ratio constant
+#define RATIO 0.2
 
 /**
  * This simple function can be used to write a sparse matrix, with user
@@ -18,8 +20,6 @@
 int main(int argc, char** argv){
 	//rows and columns are to be provided by the user
 	unsigned int rowNum, colNum;
-	//Define ratio as 0.2
-	float ratio= 0.2;
 
 	if(argc < 3 || strlen(argv[1]) == 0 || strlen(argv[2]) == 0) {
 		printf("Error: Invalid number of arguments or invalid arguments\n");
@@ -53,7 +53,7 @@ int main(int argc, char** argv){
 		for(unsigned int j = 0; j < colNum; j++){
 			//Here is our chance element, this won't happen very often
 			//making our matrix sparse
-			if((double)rand() / (double)RAND_MAX < ratio){
+			if((double)rand() / (double)RAND_MAX < RATIO){
 				value = rand();	
 			} else {
 				//Most of the time, value will be 0
