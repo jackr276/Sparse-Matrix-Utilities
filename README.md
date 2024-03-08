@@ -44,6 +44,38 @@ The program diplays a message in the above format for every 4 bytes in the binar
 
 
 ## Converting Sparse Matrices into Compressed Sparse Row(CSR) Format
+### What is Compressed Sparse Row(CSR) Format?
+Compressed Sparse Row(CSR) format is an efficient way of storing sparse matrices. As mentioned above, since sparse matrices contain have at least half of their values set to 0, they have the potential to waste kilobytes or megabytes of space in memory or on disk. CSR format provides a way of efficiently storing sparse matrices, while also preserving all of the important information about them. 
+
+CSR format works by storing three arrays: 
+1. A `values` array that stores all of the nonzero values
+2. A `column_indices` array that stores the column index of each corresponding value in their respective rows
+3. A `row_start` array that stores the index in the values array at which each row starts. The last value in the row_start array also happens to be the number of nonzero elements that the sparse matrix has
+
+This way of storing sparse matrices is very efficient, as only meaningful data(values and their positions) is stored. It is also very easy to use these three arrays to reconstruct a sparse matrix should the need arise, as all necessary information is provided to do so.
+
+The description of the row_start array in particular can be a little abstract without a real example. To make it more concrete, let's take our example from above and convert it into CSR format:
+  |0 | 1 | 0 | 0 | 0 |
+  |-----|-----|-----|-----|------|
+  |**0**|**0**|**2**|**0**|**1**|
+  |**0**|**4**|**0**|**0**|**0**|
+  |**1**|**0**|**0**|**0**|**0**|
+  |**3**|**0**|**0**|**0**|**0**|
+  
+In compressed row format, this sparse matrix would be stored as:
+```
+dimensions 5 5
+values = [1, 2, 1, 4, 1, 3]
+column_indices = [1, 2, 4, 1, 0, 0]
+row_start = [0, 1, 3, 4, 5, 6]
+```
+Properly reading CSR format would go as follows: index 0 in row start has a value of 0, meaning that row 0 starts at index 0 in values, and goes up to but does not include index 1 in values. `values[0]` is 1, and the corresponding integer in `column_indices` at index 0 is 1. This tells
+us that the value 1 is the only value in row 0, and it is located at column index 1 in row 0. Knowing this we can reconstruct row 0 as `0 1 0 0 0`. This can be done for each value in the values array to reconstruct the entire sparse matrix.
+
+### The utility program convert_to_csr.c
+The C program [convert_to_csr.c](https://github.com/jackr276/Sparse-Matrix-Utilities/blob/main/src/run.sh) takes in a binary file as a command line argument, and programmatically converts that file into compressed sparse row format, saving the result into a text file `matrix.txt`. It is important
+to note that **convert_to_csr.c** relies on binary sparse matrix files following the convention of having the first 8 bytes in the binary file represent the number of rows and columns in the sparse matrix. Binary files that violate this convention will still be interpreted, just not correctly. The
+program itself is very well documented, so I will not reiterate its functionality here. I would encourage anyone interested to view the source code for themselves.
 
 ## Running these programs
 For convenience, a runner script [run.sh](https://github.com/jackr276/Sparse-Matrix-Utilities/blob/main/src/run.sh) has been provided that will compile, take input, and run all of the programs in this project. Some examples of how to use it are below.
