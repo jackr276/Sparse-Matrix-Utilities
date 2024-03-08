@@ -35,7 +35,7 @@ int main(int argc, char** argv){
 
 	//If we can't create the file, exit the program
 	if(fl == NULL){
-		printf("File creation failed\b");
+		printf("File creation failed\n");
 		return 1;	
 	}
 
